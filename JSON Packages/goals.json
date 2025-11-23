@@ -1,0 +1,82 @@
+{
+  "name": "Goal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Goal title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the goal"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "health",
+        "career",
+        "education",
+        "personal",
+        "financial",
+        "relationships"
+      ],
+      "default": "personal",
+      "description": "Goal category"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "paused"
+      ],
+      "default": "active",
+      "description": "Goal status"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Target completion date"
+    },
+    "progress": {
+      "type": "number",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Progress percentage (0-100)"
+    },
+    "milestones": {
+      "type": "array",
+      "description": "Goal milestones",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean",
+            "default": false
+          },
+          "completed_date": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the goal was completed"
+    },
+    "points": {
+      "type": "number",
+      "default": 50,
+      "description": "Points awarded for completing this goal"
+    }
+  },
+  "required": [
+    "title"
+  ]
+}
