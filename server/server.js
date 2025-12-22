@@ -15,7 +15,9 @@ require('./routes/task.routes')(app);
 require('./routes/goal.routes')(app);
 require('./routes/progress.routes')(app);
 
-const port = process.env.PORT || 8000;
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
-
+if (process.env.NODE_ENV !== 'production') {
+    const port = process.env.PORT || 8000;
+    app.listen(port, () => console.log(`Server is listening on port ${port}`));
+  }
+  
 module.exports = app;
