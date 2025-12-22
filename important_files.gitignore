@@ -4,5 +4,4 @@
 
 # Environment variables - secret files
 .env
-mongo.env
-/server/mongo.env
+/server/.env
