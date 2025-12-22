@@ -6,8 +6,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Plus } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 
-import TaskForm from '../Components/tasks/TaskForm';
-import TaskCard from '../Components/tasks/TaskCard';
+import TaskForm from '../Components/tasks/formtasks';
+import TaskCard from '../Components/tasks/taskcard';
 
 export default function Tasks() {
   const queryClient = useQueryClient();

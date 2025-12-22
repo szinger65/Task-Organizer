@@ -1,7 +1,10 @@
 # Dependencies
-/node_modules
+node_modules
 /server/node_modules
 
-# Environment variables - secret files
 .env
 /server/.env
+
+.DS_Store
+
+.vercel
