@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { api } from '../api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button } from "../components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Target, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
-
-import GoalForm from '../components/goals/formgoals';
+import GoalForm from '../components/goals/formgoals'; 
 import GoalCard from '../components/goals/goalscard';
 
 export default function Goals() {
@@ -14,30 +13,22 @@ export default function Goals() {
   const [showForm, setShowForm] = useState(false);
   const [editingGoal, setEditingGoal] = useState(null);
   const [filter, setFilter] = useState('all');
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    base44.auth.me().then(setUser).catch(() => {});
-  }, []);
 
   const { data: goals = [] } = useQuery({
     queryKey: ['goals'],
-    queryFn: () => base44.entities.Goal.list('-created_date', 100),
+    queryFn: api.goals.list,
   });
 
   const { data: progressData = [] } = useQuery({
-    queryKey: ['userProgress', user?.email],
-    queryFn: async () => {
-      if (!user?.email) return [];
-      return base44.entities.UserProgress.filter({ created_by: user.email });
-    },
-    enabled: !!user?.email,
+    queryKey: ['userProgress'],
+    queryFn: () => api.userProgress.get('default'),
   });
 
   const userProgress = progressData[0] || {};
 
   const createGoalMutation = useMutation({
-    mutationFn: (data) => base44.entities.Goal.create({ ...data, progress: 0 }),
+    mutationFn: (data) => api.goals.create({ ...data, progress: 0 }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['goals'] });
       setShowForm(false);
@@ -45,7 +36,7 @@ export default function Goals() {
   });
 
   const updateGoalMutation = useMutation({
-    mutationFn: ({ id, data }) => base44.entities.Goal.update(id, data),
+    mutationFn: ({ id, data }) => api.goals.update(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['goals'] });
       setShowForm(false);
@@ -54,7 +45,7 @@ export default function Goals() {
   });
 
   const deleteGoalMutation = useMutation({
-    mutationFn: (id) => base44.entities.Goal.delete(id),
+    mutationFn: (id) => api.goals.delete(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['goals'] });
     },
@@ -69,18 +60,19 @@ export default function Goals() {
         updatedData.completed_date = new Date().toISOString();
 
         const updatedProgress = {
+          ...userProgress,
           total_points: (userProgress.total_points || 0) + (goal.points || 50),
           total_goals_completed: (userProgress.total_goals_completed || 0) + 1
         };
 
-        if (progressData.length > 0) {
-          await base44.entities.UserProgress.update(progressData[0].id, updatedProgress);
+        if (userProgress._id) { 
+          await api.userProgress.update(userProgress._id, updatedProgress);
         } else {
-          await base44.entities.UserProgress.create(updatedProgress);
+          await api.userProgress.create(updatedProgress);
         }
       }
 
-      return base44.entities.Goal.update(goal.id, updatedData);
+      return api.goals.update(goal._id, updatedData);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['goals'] });
@@ -90,7 +82,7 @@ export default function Goals() {
 
   const handleSubmit = (data) => {
     if (editingGoal) {
-      updateGoalMutation.mutate({ id: editingGoal.id, data });
+      updateGoalMutation.mutate({ id: editingGoal._id, data });
     } else {
       createGoalMutation.mutate(data);
     }
@@ -180,18 +172,18 @@ export default function Goals() {
             ) : (
               filteredGoals.map((goal) => (
                 <GoalCard
-                  key={goal.id}
+                  key={goal._id} 
                   goal={goal}
-                  onEdit={(goal) => {
-                    setEditingGoal(goal);
+                  onEdit={(g) => {
+                    setEditingGoal(g);
                     setShowForm(true);
                   }}
-                  onDelete={(goal) => {
-                    if (confirm('Are you sure you want to delete this goal?')) {
-                      deleteGoalMutation.mutate(goal.id);
+                  onDelete={(g) => { 
+                    if (window.confirm('Are you sure you want to delete this goal?')) {
+                      deleteGoalMutation.mutate(g._id);
                     }
                   }}
-                  onUpdateProgress={(goal, data) => updateProgressMutation.mutate({ goal, data })}
+                  onUpdateProgress={(g, data) => updateProgressMutation.mutate({ goal: g, data })}
                 />
               ))
             )}

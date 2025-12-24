@@ -77,7 +77,7 @@ export default function Layout({ children, currentPageName }) {
                 return (
                   <Link
                     key={item.name}
-                    to={createPageUrl(item.path)}
+                    to={`/${item.path.toLowerCase()}`}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                       isActive
