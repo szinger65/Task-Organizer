@@ -1,7 +1,7 @@
 import React from 'react';
 import { api } from '../api/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { Plus, Target, CheckCircle, TrendingUp, Award } from 'lucide-react';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';

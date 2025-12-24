@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { LayoutDashboard, CheckSquare, Target, TrendingUp, Menu, X, Zap } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { useState } from 'react';
 
 export default function Layout({ children, currentPageName }) {

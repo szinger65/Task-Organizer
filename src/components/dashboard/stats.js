@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from "@/components/ui/card";
+import { Card } from "../components/ui/card";
 import { motion } from "framer-motion";
 
 export default function StatsCard({ icon: Icon, label, value, color, delay = 0 }) {

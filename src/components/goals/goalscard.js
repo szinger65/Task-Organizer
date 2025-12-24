@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Card } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { Progress } from "../components/ui/progress";
+import { Checkbox } from "../components/ui/checkbox";
 import { motion } from "framer-motion";
 import { Calendar, Target, Pencil, Trash2, CheckCircle2 } from "lucide-react";
 import { format } from "date-fns";

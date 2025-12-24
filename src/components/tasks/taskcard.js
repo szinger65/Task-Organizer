@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Card } from "../components/ui/card";
+import { Checkbox } from "../components/ui/checkbox";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
 import { Calendar, Sparkles, Pencil, Trash2 } from "lucide-react";
 import { format } from "date-fns";
