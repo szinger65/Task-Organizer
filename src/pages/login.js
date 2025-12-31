@@ -28,7 +28,7 @@ export default function Login() {
       <form onSubmit={handleLogin} className="p-8 bg-white rounded-xl shadow-lg w-96 space-y-4">
         <div className="text-center mb-4">
           <h1 className="text-2xl font-bold text-slate-900">Login</h1>
-          <p className="text-slate-500 text-sm">Welcome back to FlowTask</p>
+          <p className="text-slate-500 text-sm">Welcome back to Ticked Off</p>
         </div>
 
         <Input 
@@ -46,7 +46,7 @@ export default function Login() {
           required
         />
         
-        <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+        <Button type="submit" className="w-full bg-black hover:bg-gray-800 text-white">
           Sign In
         </Button>
 
