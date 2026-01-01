@@ -12,6 +12,7 @@ import Tasks from './pages/tasks';
 import Goals from './pages/goals';
 import Progress from './pages/progress';
 import Register from './pages/register';
+import Profile from './pages/profile';
 
 
 const queryClient = new QueryClient();
@@ -65,6 +66,11 @@ root.render(
           <Route path="/progress" element={
             <ProtectedRoute>
               <LayoutWrapper pageName="Progress"><Progress /></LayoutWrapper>
+            </ProtectedRoute>
+          } />
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <LayoutWrapper pageName="Profile"><Profile /></LayoutWrapper>
             </ProtectedRoute>
           } />
         </Routes>

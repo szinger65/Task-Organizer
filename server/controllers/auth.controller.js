@@ -41,3 +41,29 @@ module.exports.login = async (req, res) => {
         res.status(500).json(err);
     }
 };
+
+module.exports.updateProfile = async (req, res) => {
+    try {
+        const updates = {
+            full_name: req.body.full_name,
+            email: req.body.email,
+            profile_picture: req.body.profile_picture
+        };
+
+        if (req.body.password) {
+            const salt = await bcrypt.genSalt(10);
+            updates.password = await bcrypt.hash(req.body.password, salt);
+        }
+
+        const user = await User.findByIdAndUpdate(req.userId, updates, { new: true });
+        
+        res.json({ 
+            id: user._id, 
+            name: user.full_name, 
+            email: user.email, 
+            profile_picture: user.profile_picture 
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+};
