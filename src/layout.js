@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, CheckSquare, Target, TrendingUp, Menu, X, Zap, LogOut, User } from 'lucide-react';
+import { LayoutDashboard, CheckSquare, Target, TrendingUp, Menu, X, CheckCheck, LogOut, User } from 'lucide-react';
 
 export default function Layout({ children }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +34,7 @@ export default function Layout({ children }) {
         <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-900 px-6 pb-4">
           <div className="flex h-20 shrink-0 items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
+              <CheckCheck className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold text-white">TickedOff</span>
           </div>
