@@ -2,7 +2,7 @@ const Task = require('../models/task.model');
 
 module.exports.getAllTasks = async (req, res) => {
     try {
-        const tasks = await Task.find();
+        const tasks = await Task.find({ user_id: req.userId }).sort({ createdAt: -1 });
         res.json(tasks);
     } catch (err) {
         res.status(400).json(err);
@@ -11,7 +11,11 @@ module.exports.getAllTasks = async (req, res) => {
 
 module.exports.createTask = async (req, res) => {
     try {
-        const task = await Task.create(req.body);
+        const newTask = {
+            ...req.body,
+            user_id: req.userId
+        };
+        const task = await Task.create(newTask);
         res.json(task);
     } catch (err) {
         res.status(400).json(err);
@@ -20,7 +24,7 @@ module.exports.createTask = async (req, res) => {
 
 module.exports.getOneTask = async (req, res) => {
     try {
-        const task = await Task.findOne({ _id: req.params.id });
+        const task = await Task.findOne({ _id: req.params.id, user_id: req.userId });
         res.json(task);
     } catch (err) {
         res.status(400).json(err);
@@ -30,7 +34,7 @@ module.exports.getOneTask = async (req, res) => {
 module.exports.updateTask = async (req, res) => {
     try {
         const updatedTask = await Task.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.params.id, user_id: req.userId },
             req.body,
             { new: true, runValidators: true }
         );
@@ -42,21 +46,9 @@ module.exports.updateTask = async (req, res) => {
 
 module.exports.deleteTask = async (req, res) => {
     try {
-        const result = await Task.deleteOne({ _id: req.params.id });
+        const result = await Task.deleteOne({ _id: req.params.id, user_id: req.userId });
         res.json(result);
     } catch (err) {
         res.status(400).json(err);
     }
-};
-
-module.exports.getAllTasks = async (req, res) => {
-    // req.userId comes from the middleware we made in Step 3
-    const tasks = await Task.find({ user_id: req.userId });
-    res.json(tasks);
-};
-
-module.exports.createTask = async (req, res) => {
-    const newTask = { ...req.body, user_id: req.userId }; // Add the ID
-    const task = await Task.create(newTask);
-    res.json(task);
 };
