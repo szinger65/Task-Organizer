@@ -30,9 +30,9 @@ export default function Login() {
     <div className="flex flex-col justify-center items-center h-screen bg-slate-50">
       <div className="mb-10 text-center">
         <SplitText 
-          text="FlowTask" 
-          className="text-6xl font-extrabold text-slate-900 tracking-tighter" 
-          delay={50}
+          text="TickeOff" 
+          className="text-8xl font-extrabold text-slate-900 tracking-tighter" 
+          delay={340}
         />
         <p className="text-slate-500 mt-3 text-lg">Master your day, conquer your goals.</p>
       </div>
