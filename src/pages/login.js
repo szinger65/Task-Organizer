@@ -4,6 +4,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 
+import SplitText from '../components/ui/splittext';
+
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,7 +27,15 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-slate-50">
+    <div className="flex flex-col justify-center items-center h-screen bg-slate-50">
+      <div className="mb-10 text-center">
+        <SplitText 
+          text="FlowTask" 
+          className="text-6xl font-extrabold text-slate-900 tracking-tighter" 
+          delay={50}
+        />
+        <p className="text-slate-500 mt-3 text-lg">Master your day, conquer your goals.</p>
+      </div>
       <form onSubmit={handleLogin} className="p-8 bg-white rounded-xl shadow-lg w-96 space-y-4">
         <div className="text-center mb-4">
           <h1 className="text-2xl font-bold text-slate-900">Login</h1>
