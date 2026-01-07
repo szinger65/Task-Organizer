@@ -13,6 +13,7 @@ import Goals from './pages/goals';
 import Progress from './pages/progress';
 import Register from './pages/register';
 import Profile from './pages/profile';
+import About from './pages/about'
 
 
 const queryClient = new QueryClient();
