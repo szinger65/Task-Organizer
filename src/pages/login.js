@@ -30,9 +30,9 @@ export default function Login() {
     <div className="flex flex-col justify-center items-center h-screen bg-slate-50">
       <div className="mb-10 text-center">
         <SplitText 
-          text="TickeOff" 
+          text="TickedOff" 
           className="text-8xl font-extrabold text-slate-900 tracking-tighter" 
-          delay={340}
+          delay={200}
         />
         <p className="text-slate-500 mt-3 text-lg">Master your day, conquer your goals.</p>
       </div>
@@ -69,6 +69,11 @@ export default function Login() {
           </Link>
         </div>
       </form>
+      <div>
+        <Link to="/about" className="text-blue-600 font-semibold hover:underline">
+          About TickedOff
+        </Link>
+      </div>
     </div>
   );
 }
