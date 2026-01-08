@@ -59,7 +59,7 @@ export default function Layout({ children }) {
               })}
             </ul>
           </nav>
-          <div className="absolute bottom-6 text center">
+          <div className="absolute bottom-6 text-center">
             <Link to="/about" className="text-blue-600 font-semibold hover:underline">
             About
             </Link>
