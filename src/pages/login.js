@@ -69,7 +69,7 @@ export default function Login() {
           </Link>
         </div>
       </form>
-      <div className="absolute bottom-6 text-lg center">
+      <div className="absolute bottom-6 text-xl center">
         <Link to="/about" className="text-blue-600 font-semibold hover:underline">
           About
         </Link>
