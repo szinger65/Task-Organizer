@@ -111,6 +111,12 @@ export default function Register() {
           />
         </div>
 
+        {error && (
+          <div className="text-center text-sm text-red-600 font-medium">
+            {error}
+          </div>
+        )}
+        
         <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
           Sign Up
         </Button>
