@@ -24,7 +24,7 @@ export default function Register() {
     setError('');
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      setError("Passwords do not match, please try again");
       return;
     }
 
@@ -53,12 +53,6 @@ export default function Register() {
           <h1 className="text-2xl font-bold text-slate-900">Create an Account</h1>
           <p className="text-slate-500 text-sm">Join TickedOff to track your progress</p>
         </div>
-
-        {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm text-center border border-red-200">
-            {error}
-          </div>
-        )}
 
         <div className="space-y-2">
           <Label htmlFor="full_name">Full Name</Label>
@@ -116,7 +110,7 @@ export default function Register() {
             {error}
           </div>
         )}
-        
+
         <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
           Sign Up
         </Button>
