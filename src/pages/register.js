@@ -33,7 +33,7 @@ export default function Register() {
           c = false;
         }
     }
-    if (c == false) {
+    if (c === false) {
       setErrr("You must have a character in your password");
       return;
     }
