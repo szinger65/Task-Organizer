@@ -13,8 +13,9 @@ export default function Register() {
     confirmPassword: ''
   });
   const [error, setError] = useState('');
-  const[errr, setErrr] = useState('')
-  const navigate = useNavigate();
+  const[errr, setErrr] = useState('');
+  const[pwrd, setPwrd] = useState('');
+  const navigate = useNavigate('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,6 +27,7 @@ export default function Register() {
     setErrr('');
 
     let pswrd = formData.password;
+    setPwrd(pswrd);
     let array = pswrd.split();
     for (let i = 0; i <= formData.password.length; i++ ) {
         if (array[i] !== '!') {
@@ -104,7 +106,7 @@ export default function Register() {
 
         {errr && (
           <div className="text-center text-sm mt-4 text-red-600">
-            {pswrd};
+            {pwrd};
             {errr};
           </div>
         )}
