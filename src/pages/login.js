@@ -14,6 +14,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError('');
     try {
       const data = await api.auth.login({ email, password });
       
@@ -22,7 +23,7 @@ export default function Login() {
       
       navigate('/dashboard');
     } catch (err) {
-      alert("Login failed. Check your email and password.");
+      setError("Login failed. Check your email and password.");
     }
   };
 
@@ -68,9 +69,11 @@ export default function Login() {
             Sign up
           </Link>
         </div>
-        <div className="text-center mt-4 text-sm text-red-600">
-          <p>Login failed. Check your email or password.</p>
-        </div>
+        {error && (
+          <div className="text-center text-sm text-red-600 font-medium animate-pulse">
+            {error}
+          </div>
+        )}
       </form>
       <div className="absolute bottom-6 text center">
         <Link to="/about" className="text-blue-600 font-semibold hover:underline">
