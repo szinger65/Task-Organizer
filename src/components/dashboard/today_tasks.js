@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Sparkles } from "lucide-react";
-import { format, isToday } from "date-fns";
+import { isToday } from "date-fns";
 
 const priorityColors = {
   low: "border-l-blue-400",

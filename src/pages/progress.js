@@ -53,14 +53,6 @@ export default function Progress() {
     { name: 'Low', value: tasks.filter(t => t.priority === 'low').length }
   ].filter(d => d.value > 0);
 
-  const categoryData = [
-    { name: 'Health', value: goals.filter(g => g.category === 'health').length },
-    { name: 'Career', value: goals.filter(g => g.category === 'career').length },
-    { name: 'Education', value: goals.filter(g => g.category === 'education').length },
-    { name: 'Personal', value: goals.filter(g => g.category === 'personal').length },
-    { name: 'Financial', value: goals.filter(g => g.category === 'financial').length }
-  ].filter(d => d.value > 0);
-
   const completionRate = tasks.length > 0 
     ? Math.round((tasks.filter(t => t.status === 'completed').length / tasks.length) * 100)
     : 0;
