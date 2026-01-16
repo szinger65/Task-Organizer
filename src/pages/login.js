@@ -71,7 +71,7 @@ export default function Login() {
           </Link>
         </div>
         {error && (
-          <div className="text-center text-sm text-red-600 font-medium animate-pulse">
+          <div className="text-center text-sm text-red-600 font-medium">
             {error}
           </div>
         )}
