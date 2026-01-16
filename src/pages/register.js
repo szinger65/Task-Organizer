@@ -26,7 +26,7 @@ export default function Register() {
 
     let pswrd = formData.password;
     let array = pswrd.split();
-    for (let i = 0; i <= password.length; i++ ) {
+    for (let i = 0; i <= formData.password.length; i++ ) {
         if (array[i] != '!') {
           setErrr("You must have a character in your password");
         }
@@ -100,7 +100,7 @@ export default function Register() {
           />
         </div>
 
-        {err && (
+        {errr && (
           <div className="text-center text-sm mt-4 text-red-600">
             {errr}
           </div>
