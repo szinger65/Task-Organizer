@@ -23,6 +23,7 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
+    setErrr('');
 
     let pswrd = formData.password;
     let array = pswrd.split();
@@ -103,7 +104,8 @@ export default function Register() {
 
         {errr && (
           <div className="text-center text-sm mt-4 text-red-600">
-            {errr}
+            {pswrd};
+            {errr};
           </div>
         )}
 
