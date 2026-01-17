@@ -31,7 +31,7 @@ export default function Login() {
   };
 
   return (
-    <div className="relative flex flex-col justify-center items-center h-screen w-full overflow-hidden bg-slate-50">
+    <div className="relative flex flex-col justify-center items-center h-screen w-full overflow-hidden bg-black">
       <div className="absolute inset -0 z-0">
         <LiquidEther
           colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
@@ -55,7 +55,7 @@ export default function Login() {
       <div className="mb-10 text-center">
         <SplitText 
           text="TickedOff" 
-          className="text-8xl font-extrabold text-slate-900 tracking-tighter" 
+          className="text-8xl font-extrabold text-white-900 tracking-tighter" 
           delay={150}
         />
         <p className="text-slate-500 mt-3 text-lg">Master your day, conquer your goals.</p>
