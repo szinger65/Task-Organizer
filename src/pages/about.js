@@ -49,32 +49,37 @@ export default function About() {
             <p className="text-sm text-slate-400">© 2026 TickedOff Inc.</p>
         </div>
       </div>
-      <div style={{ height: '200px', position: 'absolute', overflow: 'hidden', bottom: '20px'}}>
-        {}
-        <LogoLoop
-          logos={techLogos}
-          speed={120}
-          direction="left"
-          logoHeight={48}
-          gap={40}
-          hoverSpeed={0}
-          scaleOnHover
-          fadeOut
-          fadeOutColor="#ffffff"
-          ariaLabel="Technology partners"
-        />
-        
-        {}
-        <LogoLoop
-          logos={techLogos}
-          speed={80}
-          direction="up"
-          logoHeight={48}
-          gap={40}
-          hoverSpeed={20}
-          fadeOut
-        />
-      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div style={{ height: '200px', position: 'relative', overflow: 'hidden', bottom: '20px'}}>
+      {/* Basic horizontal loop */}
+      <LogoLoop
+        logos={techLogos}
+        speed={120}
+        direction="left"
+        logoHeight={48}
+        gap={40}
+        hoverSpeed={0}
+        scaleOnHover
+        fadeOut
+        fadeOutColor="#ffffff"
+        ariaLabel="Technology partners"
+      />
+      
+      {/* Vertical loop with deceleration on hover */}
+      <LogoLoop
+        logos={techLogos}
+        speed={80}
+        direction="up"
+        logoHeight={48}
+        gap={40}
+        hoverSpeed={20}
+        fadeOut
+      />
     </div>
   );
 }
