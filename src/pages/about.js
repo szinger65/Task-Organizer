@@ -49,7 +49,7 @@ export default function About() {
             <p className="text-sm text-slate-400">© 2026 TickedOff Inc.</p>
         </div>
       </div>
-      <div style={{ height: '200px', position: 'absolute', overflow: 'hidden', bottom: '200px'}}>
+      <div style={{ height: '200px', position: 'absolute', overflow: 'hidden', bottom: '20px'}}>
         {}
         <LogoLoop
           logos={techLogos}
