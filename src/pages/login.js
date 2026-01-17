@@ -52,7 +52,7 @@ export default function Login() {
         />
       </div>
       <div className="relative z-10 flex flex-col items-center">
-      <div className="mb-10 text-center">
+      <div className="mb-10 text-center text-white-600">
         <SplitText 
           text="TickedOff" 
           className="text-8xl font-extrabold text-white-900 tracking-tighter" 
