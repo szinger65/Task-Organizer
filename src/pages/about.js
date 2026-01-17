@@ -7,7 +7,6 @@ import { SiReact, SiNodedotjs, SiJavascript, SiTailwindcss, SiMongodb, SiLinkedi
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
   { node: <SiNodedotjs />, title: "Next.js", href: "https://nodejs.org" },
-  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
   { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
   { node: <SiJavascript />, title: "JavaScript"},
   { node: <SiMongodb />, title: "MongoDB", href: "https://www.mongodb.com/"},
